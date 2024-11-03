@@ -1,0 +1,47 @@
+<div class="login-container" *ngIf="!loggedIn">
+  <div class="login-card">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+          placeholder="Enter your email" 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          [(ngModel)]="password" 
+          name="password" 
+          required 
+          placeholder="Enter your password" 
+        />
+      </div>
+
+      <button type="submit">Login</button>
+      <div class="login-footer">
+        <span>Don't have an account?</span>
+        <a routerLink="/signup">Sign up</a>
+      </div>
+    </form>
+
+    <!-- Social Login Buttons -->
+    <div class="social-login">
+      <button (click)="signInWithGoogle()">Login with Google</button>
+    </div>
+  </div>
+</div>
+
+<!-- Profile Information -->
+<div *ngIf="loggedIn" class="profile-container">
+  <p>Welcome, {{ userName }}</p>
+  <!-- Add more profile details here if needed -->
+</div>

@@ -1,0 +1,25 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">LPU Oven Express ☺</a>
+    <nav>
+      <ul>
+        <li *ngIf="!loggedIn"> <!-- Show Login link only when not logged in -->
+          <a routerLink="/login">Login</a>
+        </li>
+        <li class="menu-container" *ngIf="loggedIn"> <!-- Show user name and menu only when logged in -->
+          <a routerLink="/dashboard">{{ userName }}</a> <!-- Display logged-in user's name -->
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/orders">Orders</a>
+            <a (click)="logout()">Logout</a> <!-- Logout function call -->
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page">
+            Cart <span>{{ cartQuantity }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

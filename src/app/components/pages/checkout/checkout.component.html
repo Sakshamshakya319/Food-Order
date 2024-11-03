@@ -1,0 +1,6 @@
+<div *ngIf="cart && cart.items.length">
+    <p>Total Items: {{ cart.totalCount }}</p>
+    <p>Total Price: {{ cart.totalPrice | currency }}</p>
+    <button (click)="createOrder()">Place Order</button>
+  </div>
+  
